@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ToastProvider } from './context/ToastContext';
 import { Layout } from './components/Layout';
@@ -19,7 +19,7 @@ export const App: React.FC = () => {
   return (
     <AuthProvider>
       <ToastProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/" element={<Layout />}>
@@ -40,7 +40,7 @@ export const App: React.FC = () => {
               <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </ToastProvider>
     </AuthProvider>
   );

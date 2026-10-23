@@ -17,6 +17,7 @@ logger.error = (msg, options) => {
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './',
   customLogger: logger,
   plugins: [
     react(),
