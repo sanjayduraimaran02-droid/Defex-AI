@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, Menlo, monospace;
+
+  /* Surfaces & Layers - Humanized Soft White Theme */
+  --color-canvas: #F8F9FA;
+  --color-surface-card: #FFFFFF;
+  --color-surface-elevated: #F1F3F5;
+  --color-surface-hover: #F8F9FA;
+  --color-border-subtle: #E5E7EB;
+  --color-border-focus: #CBD5E1;
+
+  /* Typography */
+  --color-text-primary: #1A1A2E;
+  --color-text-secondary: #6B7280;
+
+  /* Brand Colors */
+  --color-brand-blue: #2563EB;
+  --color-brand-blue-hover: #1D4ED8;
+  --color-brand-blue-light: #3B82F6;
+  --color-brand-indigo: #4F46E5;
+  --color-brand-indigo-bg: #EEF2FF;
+
+  /* Clean Status Colors */
+  --color-status-pass: #22C55E;
+  --color-status-pass-bg: #F0FDF4;
+  --color-status-pass-border: #BBF7D0;
+  --color-status-pass-text: #15803D;
+  
+  --color-status-fail: #EF4444;
+  --color-status-fail-bg: #FEF2F2;
+  --color-status-fail-border: #FECACA;
+  --color-status-fail-text: #B91C1C;
+
+  --color-status-uncertain: #F59E0B;
+  --color-status-uncertain-bg: #FFFBEB;
+  --color-status-uncertain-border: #FDE68A;
+  --color-status-uncertain-text: #B45309;
+}
+
+@layer base {
+  html, body, #root {
+    background-color: #F8F9FA;
+    color: #1A1A2E;
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code, pre, kbd {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Subtle, refined alert pulse animations */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(0.995); }
+}
+
+@keyframes gentleBeacon {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 2.5s infinite ease-in-out;
+}
+
+.animate-beacon {
+  animation: gentleBeacon 2s infinite ease-in-out;
+}
+
+@keyframes toastProgress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+.animate-toast-progress {
+  animation-name: toastProgress;
+}
+
+/* Modern Clean Light Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}

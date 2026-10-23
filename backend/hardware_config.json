@@ -1,0 +1,48 @@
+{
+  "demo_mode": false,
+  "description": "Defex AI Industrial Physical Hardware & Telemetry Ingestion Configuration",
+  "plc": {
+    "enabled": true,
+    "protocol": "MODBUS_TCP",
+    "host": "192.168.1.120",
+    "port": 502,
+    "slave_id": 1,
+    "opc_endpoint": "opc.tcp://192.168.1.120:4840/defex/server/",
+    "ping_interval_ms": 1000,
+    "register_map": {
+      "spindle_rpm": 100,
+      "feed_rate_mmpm": 102,
+      "cycle_state": 104,
+      "vibration_g": 106,
+      "temperature_c": 108,
+      "interlock_permissive": 0
+    }
+  },
+  "relay_interlock": {
+    "type": "SERIAL_MODBUS",
+    "port": "COM3",
+    "baudrate": 9600,
+    "estop_coil": 2,
+    "hard_relay_pin": 17,
+    "sil_rated": true,
+    "response_target_ms": 15
+  },
+  "camera": {
+    "source": 0,
+    "rtsp_url": "rtsp://192.168.1.55:554/stream1",
+    "capture_api": "V4L2_OR_DSHOW",
+    "resolution": {
+      "width": 1920,
+      "height": 1080
+    },
+    "fps": 30
+  },
+  "mqtt": {
+    "enabled": true,
+    "broker": "127.0.0.1",
+    "port": 1883,
+    "topic_telemetry": "defex/telemetry/+",
+    "topic_alerts": "defex/alerts",
+    "topic_interlock": "defex/interlock/command"
+  }
+}

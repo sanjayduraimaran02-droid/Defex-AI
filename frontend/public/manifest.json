@@ -1,0 +1,16 @@
+{
+  "name": "Defex AI",
+  "short_name": "Defex",
+  "description": "Defex AI — Industrial Visual Defect Triage & Damage Prevention Station",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#2563EB",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
