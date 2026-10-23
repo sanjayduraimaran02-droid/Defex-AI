@@ -19,8 +19,9 @@ export const DefectOverlayViewer: React.FC<DefectOverlayViewerProps> = ({
   const [selectedDefectIdx, setSelectedDefectIdx] = useState<number | null>(null);
   const [isZoomed, setIsZoomed] = useState(false);
 
-  // Active image source
-  const currentImage = showAnnotated && annotatedImageUrl ? annotatedImageUrl : rawImageUrl || annotatedImageUrl;
+  // Active image source with relative path support for static hosting
+  const rawSrc = showAnnotated && annotatedImageUrl ? annotatedImageUrl : rawImageUrl || annotatedImageUrl;
+  const currentImage = rawSrc && rawSrc.startsWith('/uploads/') ? '.' + rawSrc : rawSrc;
 
   return (
     <div className="bg-white border border-[#E2E8F0] rounded-xl overflow-hidden shadow-xs">
